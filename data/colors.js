@@ -1,5 +1,5 @@
 export const colors = {
-  "Mercury": "#ff2b2b", 
+  "Mercury": "#ff2b2b",  
   "TypeScript": "#2b7489", 
   "PureBasic": "#5a6986", 
   "Objective-C++": "#6866fb", 
