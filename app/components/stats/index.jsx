@@ -36,6 +36,15 @@ function GitStats() {
               alt="github stats"
             />
           </GlowCard>
+          <GlowCard identifier="github-stats-2">
+            <Image
+              src={`https://github-readme-stats.vercel.app/api?username=${userData.githubUser}&show_icons=true&include_all_commits=true&theme=algolia&hide_border=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&hide=stars,commits,prs,issues,contribs`}
+              width={1080}
+              height={520}
+              alt="github stats"
+              className="rounded-lg"
+            />
+          </GlowCard>
         </>
       </div>
     </div>
