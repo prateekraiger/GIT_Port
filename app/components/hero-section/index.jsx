@@ -137,9 +137,9 @@ const HeroSection = ({ profile }) => {
                   </span>
                   {item.type === "string" ? (
                     <>
-                      <span className="text-gray-400">'</span>
+                      <span className="text-gray-400"></span>
                       <span className="text-green-400">{item.value}</span>
-                      <span className="text-gray-400">',</span>
+                      <span className="text-gray-400"></span>
                     </>
                   ) : (
                     <>
