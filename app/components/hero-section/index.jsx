@@ -137,9 +137,9 @@ const HeroSection = ({ profile }) => {
                   </span>
                   {item.type === "string" ? (
                     <>
-                      <span className="text-gray-400"></span>
+                      <span className="text-gray-400">&apos;</span>
                       <span className="text-green-400">{item.value}</span>
-                      <span className="text-gray-400"></span>
+                      <span className="text-gray-400">&apos;,</span>
                     </>
                   ) : (
                     <>
@@ -155,7 +155,7 @@ const HeroSection = ({ profile }) => {
                 <span className="text-gray-400">{"["}</span>
                 {userData.skills.map((skill, i) => (
                   <React.Fragment key={skill}>
-                    <span className="text-cyan-400">{`'${skill}'`}</span>
+                    <span className="text-cyan-400">{`&apos;${skill}&apos;`}</span>
                     {i !== userData.skills.length - 1 && (
                       <span className="text-gray-400">, </span>
                     )}
