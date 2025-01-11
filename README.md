@@ -12,7 +12,7 @@ A modern, responsive portfolio template designed specifically for GitHub users t
 - **Responsive Design**: Optimized for all devices with smooth animations and transitions
 - **Easy Customization**: Modify content through a simple configuration file
 
-## 🛠️ Technologies
+## 🛠️ Technologies 
 | Technology | Purpose |
 |------------|---------|
 | Next.js | Server-side rendering and routing |
