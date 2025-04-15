@@ -3,7 +3,7 @@ import Contributions from "./components/contributions";
 import HeroSection from "./components/hero-section";
 import GitLanguage from "./components/language";
 import Projects from "./components/projects";
-import Rank from "./components/rank";
+
 import GitStats from "./components/stats";
 
 async function getGitProfile() {
@@ -39,7 +39,6 @@ export default async function Home() {
       <GitStats />
       <Projects projects={projects.items} profile={profile} />
       <GitLanguage />
-      <Rank />
       <Contributions />
     </>
   );
