@@ -1,3 +1,5 @@
+"use client";
+
 // @flow strict
 import { userData } from "@/data/user-data";
 import Image from "next/image";
@@ -5,6 +7,8 @@ import GlowCard from "../helper/glow-card";
 import SectionTitle from "../helper/section-title";
 
 function GitStats() {
+  const githubUser = userData.githubUser;
+
   return (
     <div
       id="stats"
@@ -17,35 +21,50 @@ function GitStats() {
           <GlowCard identifier="profile-details">
             <div className="bg-primary-bg">
               <Image
-                src={`http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${userData.githubUser}&theme=algolia`}
+                src={`https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${githubUser}&theme=algolia`}
                 width={1080}
                 height={520}
-                alt="github profile-details"
-                className="rounded-lg "
+                alt="GitHub Profile Details"
+                className="rounded-lg"
+                onError={(e) => {
+                  e.target.src = "/fallback-image.png";
+                }}
               />
             </div>
           </GlowCard>
         </div>
 
-        <>
-          <GlowCard identifier="github-stats">
+        <GlowCard identifier="github-stats">
+          <Image
+            src={`https://github-readme-stats.vercel.app/api?username=${githubUser}&show_icons=true&include_all_commits=true&theme=algolia&hide_border=true`}
+            width={1080}
+            height={520}
+            alt="GitHub Stats"
+            className="rounded-lg"
+            onError={(e) => {
+              e.target.src = "/fallback-image.png";
+            }}
+          />
+        </GlowCard>
+
+        <GlowCard identifier="streak">
+          {githubUser ? (
             <Image
-              src={`https://github-readme-stats.vercel.app/api?username=${userData.githubUser}&show_icons=true&include_all_commits=true&theme=algolia&hide_border=true`}
+              src={`https://streak-stats.demolab.com?user=${githubUser}&theme=algolia&hide_border=true`}
               width={1080}
               height={520}
-              alt="github stats"
-            />
-          </GlowCard>
-          <GlowCard identifier="github-stats-2">
-            <Image
-              src={`https://github-readme-stats.vercel.app/api?username=${userData.githubUser}&show_icons=true&include_all_commits=true&theme=algolia&hide_border=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&hide=stars,commits,prs,issues,contribs`}
-              width={1080}
-              height={520}
-              alt="github stats"
+              alt="GitHub Streak Stats"
               className="rounded-lg"
+              onError={(e) => {
+                e.target.src = "/fallback-image.png";
+              }}
             />
-          </GlowCard>
-        </>
+          ) : (
+            <p className="text-center text-gray-500">
+              Unable to load streak stats. Please try again later.
+            </p>
+          )}
+        </GlowCard>
       </div>
     </div>
   );
