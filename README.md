@@ -1,6 +1,6 @@
 
-# GitHub Portfolio Showcase 🚀
-
+# GitHub Portfolio Showcase 
+ 
 ## 🌟 Overview
 A modern, responsive portfolio template designed specifically for GitHub users to showcase their coding journey. Built with Next.js and Tailwind CSS, this project dynamically fetches and displays GitHub data through the GitHub API, creating a personalized developer portfolio.
 
@@ -12,7 +12,7 @@ A modern, responsive portfolio template designed specifically for GitHub users t
 - **Responsive Design**: Optimized for all devices with smooth animations and transitions
 - **Easy Customization**: Modify content through a simple configuration file
 
-## 🛠️ Technologies
+## 🛠️ Technologies 
 | Technology | Purpose |
 |------------|---------|
 | Next.js | Server-side rendering and routing |
