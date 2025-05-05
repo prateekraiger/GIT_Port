@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,13 +8,27 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si";
 import { userData } from "@/data/user-data";
+import TextCursor from "./TextCursor";
 
 const HeroSection = ({ profile }) => {
   return (
-    <section className="py-4 lg:py-12 relative flex flex-col items-center justify-between">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 lg:gap-12">
+    <section className="py-4 lg:py-12 relative flex flex-col items-center justify-between min-h-screen">
+      {/* Make TextCursor absolutely cover the section for full-area mouse tracking */}
+      <div className="absolute inset-0 z-30">
+        <TextCursor
+          text="💻"
+          delay={0.01}
+          spacing={80}
+          followMouseDirection={true}
+          randomFloat={true}
+          exitDuration={0.3}
+          removalInterval={20}
+          maxPoints={10}
+        />
+      </div>
+      <div className="flex flex-col gap-y-8 w-full px-2 md:px-8 lg:px-16">
         {/* Profile Section */}
-        <div className="flex flex-col items-start justify-center rounded-lg p-3 lg:py-5 lg:px-12 bg-primary-bg h-full">
+        <div className="flex flex-col items-start justify-center rounded-lg p-6 lg:py-12 lg:px-20 bg-primary-bg h-full w-full text-lg md:text-xl lg:text-2xl">
           <div className="flex w-full justify-center">
             <Image
               src={profile.avatar_url}
@@ -29,45 +45,42 @@ const HeroSection = ({ profile }) => {
           </p>
 
           <div className="w-full flex justify-center items-center gap-5">
-            <Link href={userData.github} passHref legacyBehavior>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all text-teal-500 hover:scale-125 duration-300"
-              >
-                <BsGithub size={24} />
-              </a>
-            </Link>
-
-            <Link href={userData.linkedIn} passHref legacyBehavior>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all text-teal-500 hover:scale-125 duration-300"
-              >
-                <BsLinkedin size={24} />
-              </a>
-            </Link>
-
-            <Link href={userData.leetcode} passHref legacyBehavior>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all text-teal-500 hover:scale-125 duration-300"
-              >
-                <SiLeetcode size={24} />
-              </a>
-            </Link>
-
-            <Link href={userData.twitter} passHref legacyBehavior>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all text-teal-500 hover:scale-125 duration-300"
-              >
-                <FaTwitterSquare size={24} />
-              </a>
-            </Link>
+            <a
+              href={userData.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all text-teal-500 hover:scale-125 duration-300"
+              aria-label="GitHub"
+            >
+              <BsGithub size={32} />
+            </a>
+            <a
+              href={userData.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all text-teal-500 hover:scale-125 duration-300"
+              aria-label="LinkedIn"
+            >
+              <BsLinkedin size={32} />
+            </a>
+            <a
+              href={userData.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all text-teal-500 hover:scale-125 duration-300"
+              aria-label="LeetCode"
+            >
+              <SiLeetcode size={32} />
+            </a>
+            <a
+              href={userData.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all text-teal-500 hover:scale-125 duration-300"
+              aria-label="Twitter"
+            >
+              <FaTwitterSquare size={32} />
+            </a>
           </div>
 
           <div className="w-full justify-center flex items-center gap-3 mt-6">
@@ -87,7 +100,7 @@ const HeroSection = ({ profile }) => {
         </div>
 
         {/* Code Display Section */}
-        <div className="h-full from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]">
+        <div className="h-full from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] p-6 lg:p-12 w-full text-lg md:text-xl lg:text-2xl">
           <div className="flex flex-row">
             <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600" />
             <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent" />
@@ -161,7 +174,7 @@ const HeroSection = ({ profile }) => {
                     )}
                   </React.Fragment>
                 ))}
-                <span className="text-gray-400">{"],"}</span>
+                <span className="text-gray-400">{"]"}</span>
               </div>
 
               <div>
